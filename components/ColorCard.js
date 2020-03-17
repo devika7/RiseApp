@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 
 import Block from './Block';
-
 import { theme } from '../constants';
 
-export default class Card extends Component {
+const background = require("../assets/images/CCback.png");
+
+export default class ColorCard extends Component {
     render() {
         const { color, style, children, ...props } = this.props;
         const cardStyles = [
@@ -15,7 +16,7 @@ export default class Card extends Component {
 
         return (
             
-            <Block color={color || theme.colors.white} style={cardStyles} {...props}>
+            <Block color={color || theme.colors.lightblue} style={cardStyles} {...props}>
                 {children}
             </Block>
             
@@ -29,6 +30,8 @@ export const styles = StyleSheet.create({
         borderRadius: theme.sizes.border,
         padding: theme.sizes.base + 4,
         marginBottom: theme.sizes.base,
+      
+        
     },
     shadow: {
         shadowColor: theme.colors.black,

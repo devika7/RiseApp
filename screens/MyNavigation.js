@@ -6,12 +6,31 @@ import Reset from "./Reset";
 import WelcomeScreen from "./WelcomeScreen";
 import LoginScreen from "./LoginScreen";
 import { Ionicons } from '@expo/vector-icons';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator} from 'react-navigation';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeScreen from './HomeScreen';
 import ExploreScreen from './ExploreScreen';
 import ProfileScreen from './ProfileScreen';
 import ConfirmSignupScreen from './ConfirmSignupScreen';
-import PlaidModule from './PlaidModule';
+import NewPlaid from './NewPlaid';
+import AddRecipient from './AddRecipient';
+import ExistingRec from './ExistingRec';
+import GoalIntro from './GoalIntro';
+import GoalSetting from './GoalSetting';
+import GoalDash from'./GoalDash';
+import Activate from './Activate';
+import Fundcard from './Fundcard';
+import Transferback from './Transferback';
+import SendMoney from './SendMoney';
+import Tabbar from './Tabbar';
+import Icon from '../components/icons';
+
+
+import { Image } from "react-native";
+
+
+import { theme} from "../constants";
+
 
 
 export const MyNavigation = createStackNavigator(
@@ -40,10 +59,8 @@ export const MyNavigation = createStackNavigator(
                     {
                         screen: ConfirmSignupScreen,
                     },
-                    ConnectBank:
-                    {
-                        screen: PlaidModule
-                    }
+                   
+                  
                 },
             )
 
@@ -61,7 +78,6 @@ export const MyNavigation = createStackNavigator(
         MainTabNavigator: {
             screen: createBottomTabNavigator(
                 {
-
                     Home: {
 
                         screen: createStackNavigator(
@@ -74,8 +90,14 @@ export const MyNavigation = createStackNavigator(
 
 
 
-                        )
+                        ),
+                        NavigationOptions: {
+                            tabBarIcon: ({tintColor}) => <Icon name="Home" color={tintColor} />,
+                          },
                     },
+
+                   
+                    
 
                     Explore: {
                         screen: createStackNavigator(
@@ -85,11 +107,61 @@ export const MyNavigation = createStackNavigator(
 
                                 },
 
+                                GoalOverview:
+                                {
+                                    screen: GoalIntro,
+                                    tabBarOptions: {
+                                        tabBarVisible: false,
+                                    }
+                                },
+
+                                SetGoal:
+                                {
+                                    screen: GoalSetting,
+                                },
+
+                                GoalDashboard:
+                                {
+                                    screen: GoalDash,
+                                },
+
+                                AddRecipient: {
+                                    screen: AddRecipient,
+                                },
+
+                                ExistingRec:
+                                {
+                                    screen: ExistingRec,
+                                },
+
+                                RemitView:
+                                {
+                                    screen: Activate,
+                                },
+                                Fundcard:
+                                {
+                                    screen: Fundcard,
+                                },
+
+                                Transfer:
+                                {
+                                    screen:Transferback,
+                                },
+
+                                SendMoney:
+                                {
+                                    screen: SendMoney,
+                                }
+                        
 
                             },
 
 
-                        )
+                        ),
+
+                        navigationOptions: {
+                            tabBarIcon: ({tintColor}) => <Icon name="Explore" color={tintColor} />,
+                          },
 
                     },
 
@@ -98,19 +170,28 @@ export const MyNavigation = createStackNavigator(
                             {
                                 Settings: {
                                     screen: ProfileScreen,
-                                }
+                                },
+
+                             ConnectBank: {
+                                   screen: NewPlaid,
+                            }
                             },
-                        )
+                        ),
+                        navigationOptions: {
+                            tabBarIcon: ({tintColor}) => <Icon name="Settings" color={tintColor} />,
+                          },
                     },
 
 
 
 
+                
                 },
                 {
+
                     //tabBarPosition: 'bottom',
                     navigationOptions: ({ navigation }) => ({
-                        tabBarIcon: ({ tintColor }) => {
+                     /*   tabBarIcon: ({ tintColor }) => {
                             const { routeName } = navigation.state;
                             let IconComponent = Ionicons;
                             let iconName;
@@ -128,13 +209,31 @@ export const MyNavigation = createStackNavigator(
                             // You can return any component that you like here!
                             return <IconComponent name={iconName} size={25} color={tintColor} />;
                         },
-                    }),
-                    tabBarOptions: {
-                        activeTintColor: 'green',
-                        inactiveTintColor: 'gray',
-                        showIcon: true
-                    },
-
+                   */
+                  tabBarComponent: Tabbar ,
+                  tabBarOptions: {
+                    activeTintColor: '#2FC7FF',
+                    inactiveTintColor: '#C5C5C5',
+                  },
+                        headerStyle: {
+                            height: theme.sizes.base * 4,
+                            backgroundColor: theme.colors.white, // or 'white
+                            borderBottomColor: "transparent",
+                            elevation: 0 // for android
+                          },
+                          headerBackImage: <Image source={require("../assets/images/back.png")} />,
+                          headerBackTitle: null,
+                          headerLeftContainerStyle: {
+                            alignItems: "center",
+                            marginLeft: theme.sizes.base * 2,
+                            paddingRight: theme.sizes.base
+                          },
+                          headerRightContainerStyle: {
+                            alignItems: "center",
+                            paddingRight: theme.sizes.base
+                          } }),
+                    
+                         
                 }
             )
         }
@@ -142,7 +241,8 @@ export const MyNavigation = createStackNavigator(
     {
         headerMode: 'none',
 
-    }
+    },
+
 );
 
 export default MyNavigation;

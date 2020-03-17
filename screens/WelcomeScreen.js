@@ -137,8 +137,8 @@ export default class WelcomeScreen extends React.Component {
                     animated
                     theme={theme}
                     center
-                    caption
-                    gray
+                    title
+                    gray3
                     margin={[theme.sizes.small, 0]}
                 >
                     {background && background.description}

@@ -9,9 +9,10 @@ const { height } = Dimensions.get('window');
 
 export default class ConfirmSignupScreen extends React.Component {
 
-
+//http://risebank.appspot.com/accounts/auth/useraccount
 
     onRegister = () => {
+       
 
         fetch('http://127.0.0.1:8000/accounts/auth/useraccount', {
             method: "POST",
@@ -37,8 +38,8 @@ export default class ConfirmSignupScreen extends React.Component {
 
             })
         }).catch(error => console.log(error))
-            .then(Alert.alert("Registration Successfull , Proceed to Login"))
-            .then(this.props.navigation.navigate('ConnectBank'))
+            .then(Alert.alert("Registration Successfull , Login "))
+            .then(this.props.navigation.navigate('Login'))
 
 
     }

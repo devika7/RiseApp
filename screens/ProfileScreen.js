@@ -54,6 +54,12 @@ export default class ProfileScreen extends React.Component {
 
     }
 
+    onConnectButtonPress = () => {
+        this.props.navigation.navigate('ConnectBank');
+
+
+    }
+
     componentDidMount() {
         this.getUserDetails();
     }
@@ -137,6 +143,12 @@ export default class ProfileScreen extends React.Component {
                         {this.renderReferFriend()}
                     </Block>
                     <Block>
+                        <Button 
+                        style={{ marginTop: 30 }}
+                            onPress={() => this.onConnectButtonPress()}>
+                                <Text>Connect Bank </Text>
+                        </Button >
+
 
                         <Button
 

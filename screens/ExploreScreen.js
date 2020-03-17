@@ -16,7 +16,7 @@ export default class ExploreScreen extends React.Component {
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false} >
           <TouchableOpacity
             activeOpacity={0.8}
-          // onPress={() => navigation.navigate("Rewards")}
+          onPress={() => this.props.navigation.navigate("RemitView")}
           >
             <Card shadow style={{ paddingVertical: theme.sizes.padding }}>
               <Block>
@@ -53,7 +53,40 @@ export default class ExploreScreen extends React.Component {
             </Card>
           </TouchableOpacity>
 
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => this.props.navigation.navigate("GoalOverview")} >
+            <Card shadow style={{ paddingVertical: theme.sizes.padding }}>
+              <Block>
+                <Block left style={{ marginBottom: 10 }}>
+                  <Text h3 black semibold spacing={0.7}> Set goals, save and earn! </Text>
+                </Block>
+                <Block center>
+                  <Image
+                    source={background.offers}
+                    resizeMode="center"
+                    style={{
+                      width: 100,
+                      height: 100
+                    }}
+                  />
+                </Block>
 
+
+
+                <Block center style={{ marginBottom: 6 }} >
+
+                  <Text size={14} spacing={0.4} style={{ marginBottom: 4 }}> Set up goals and save for all your smallest as well as biggest milestones. Banking that's with you always!
+                </Text>
+
+                  <TouchableOpacity>
+                    <Text title semibold blue spacing={1.2}> Set my goals </Text>
+                  </TouchableOpacity>
+
+                </Block>
+              </Block>
+            </Card>
+          </TouchableOpacity>
 
 
           <TouchableOpacity
@@ -88,39 +121,7 @@ export default class ExploreScreen extends React.Component {
             </Card>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            activeOpacity={0.8}>
-            <Card shadow style={{ paddingVertical: theme.sizes.padding }}>
-              <Block>
-                <Block left style={{ marginBottom: 10 }}>
-                  <Text h3 black semibold spacing={0.7}> Offers, crafted for you </Text>
-                </Block>
-                <Block center>
-                  <Image
-                    source={background.offers}
-                    resizeMode="center"
-                    style={{
-                      width: 100,
-                      height: 100
-                    }}
-                  />
-                </Block>
-
-
-
-                <Block center style={{ marginBottom: 6 }} >
-
-                  <Text size={14} spacing={0.4} style={{ marginBottom: 4 }}> We have crafted offers which are best fitted for immigrant spending habits. Banking that earns you money!
-                </Text>
-
-                  <TouchableOpacity>
-                    <Text title semibold blue spacing={1.2}> See my offers </Text>
-                  </TouchableOpacity>
-
-                </Block>
-              </Block>
-            </Card>
-          </TouchableOpacity>
+          
         </ScrollView>
       </React.Fragment>
 

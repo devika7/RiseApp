@@ -14,8 +14,11 @@ const colors = {
     gray3: "#F0F0F0",
     gray4: "#F7F8FA",
     blue: '#2E5BFF',
+    lightblue: '#486FFF',
     border: '#D6DDF6',
-    input: 'rgba(224, 231, 255, 0.20)',
+    green: '#99C68E',
+    
+   // input: 'rgba(224, 231, 255, 0.20)',
 
     // lightblue: 'rgba(46,92,255,0.2)',
 };
